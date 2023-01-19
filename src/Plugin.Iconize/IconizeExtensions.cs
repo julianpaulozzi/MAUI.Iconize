@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace Plugin.Iconize
 {
@@ -26,11 +26,11 @@ namespace Plugin.Iconize
         {
             var list = new List<ToolbarItem>(page.ToolbarItems);
 
-            if (page is MasterDetailPage masterDetailPage)
+            if (page is FlyoutPage masterDetailPage)
             {
-                if (masterDetailPage.IsPresented && masterDetailPage.Master != null)
+                if (masterDetailPage.IsPresented && masterDetailPage.Flyout != null)
                 {
-                    list.AddRange(masterDetailPage.Master.GetToolbarItems());
+                    list.AddRange(masterDetailPage.Flyout.GetToolbarItems());
                 }
                 else if (masterDetailPage.Detail != null)
                 {

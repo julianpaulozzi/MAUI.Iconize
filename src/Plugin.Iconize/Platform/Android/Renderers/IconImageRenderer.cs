@@ -1,15 +1,18 @@
 using System;
 using System.ComponentModel;
 using Android.Content;
-using Plugin.Iconize;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 #if USE_FASTRENDERERS
-using ImageRenderer = Xamarin.Forms.Platform.Android.FastRenderers.ImageRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
-using ScaleType = Android.Widget.ImageView.ScaleType;
-using ImageRenderer = Xamarin.Forms.Platform.Android.ImageRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #endif
+using Plugin.Iconize;
+
+using ScaleType = Android.Widget.ImageView.ScaleType;
 
 [assembly: ExportRenderer(typeof(IconImage), typeof(IconImageRenderer))]
 
@@ -21,7 +24,7 @@ namespace Plugin.Iconize
 #if USE_FASTRENDERERS
     /// <seealso cref="Xamarin.Forms.Platform.Android.FastRenderers.ImageRenderer" />
 #else
-    /// <seealso cref="Xamarin.Forms.Platform.Android.ImageRenderer" />
+    /// <seealso cref="Android.ImageRenderer" />
 #endif
     public class IconImageRenderer : ImageRenderer
     {

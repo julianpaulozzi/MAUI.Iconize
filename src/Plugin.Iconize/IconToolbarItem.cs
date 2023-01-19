@@ -1,13 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace Plugin.Iconize
 {
     /// <summary>
     /// Defines the <see cref="IconToolbarItem" /> control.
     /// </summary>
-    /// <seealso cref="Xamarin.Forms.ToolbarItem" />
+    /// <seealso cref="ToolbarItem" />
     public class IconToolbarItem : ToolbarItem
     {
         /// <summary>
@@ -18,13 +19,15 @@ namespace Plugin.Iconize
         /// <summary>
         /// Backing store for the <see cref="IconColor" /> property.
         /// </summary>
-        public static BindableProperty IconColorProperty = BindableProperty.Create(nameof(IconColor), typeof(Color), typeof(IconToolbarItem), default(Color));
+        public static BindableProperty IconColorProperty = BindableProperty.Create(nameof(IconColor), typeof(Color), typeof(IconToolbarItem));
 
         /// <summary>
         /// Backing store for the <see cref="IsVisible" /> property.
         /// </summary>
         public static BindableProperty IsVisibleProperty = BindableProperty.Create(nameof(IsVisible), typeof(Boolean), typeof(IconToolbarItem), true);
 
+        public static BindableProperty IconProperty = BindableProperty.Create(nameof(Icon), typeof(String), typeof(IconToolbarItem), String.Empty);
+        
         /// <summary>
         /// Gets or sets the color of the icon.
         /// </summary>
@@ -47,6 +50,12 @@ namespace Plugin.Iconize
         {
             get => (Boolean)GetValue(IsVisibleProperty);
             set => SetValue(IsVisibleProperty, value);
+        }
+
+        public new String IconImageSource
+        {
+            get => (String)GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
         }
 
         /// <summary>

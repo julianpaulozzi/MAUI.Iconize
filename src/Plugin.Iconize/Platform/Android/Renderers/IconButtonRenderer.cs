@@ -2,14 +2,16 @@ using System;
 using System.ComponentModel;
 using Android.Content;
 using Android.OS;
-using Plugin.Iconize;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
 #if USE_FASTRENDERERS
-using ButtonRenderer = Xamarin.Forms.Platform.Android.FastRenderers.ButtonRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
-using ButtonRenderer = Xamarin.Forms.Platform.Android.AppCompat.ButtonRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
 #endif
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Plugin.Iconize;
 
 [assembly: ExportRenderer(typeof(IconButton), typeof(IconButtonRenderer))]
 
@@ -21,7 +23,7 @@ namespace Plugin.Iconize
 #if USE_FASTRENDERERS
     /// <seealso cref="Xamarin.Forms.Platform.Android.FastRenderers.ButtonRenderer" />
 #else
-    /// <seealso cref="Xamarin.Forms.Platform.Android.AppCompat.ButtonRenderer" />
+    /// <seealso cref="Android.AppCompat.ButtonRenderer" />
 #endif
     public class IconButtonRenderer : ButtonRenderer
     {

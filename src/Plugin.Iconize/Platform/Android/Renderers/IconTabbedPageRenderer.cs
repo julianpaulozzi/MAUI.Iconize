@@ -1,8 +1,9 @@
 using Android.Content;
 using Android.Graphics.Drawables;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
 using Plugin.Iconize;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android.AppCompat;
 
 [assembly: ExportRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer))]
 

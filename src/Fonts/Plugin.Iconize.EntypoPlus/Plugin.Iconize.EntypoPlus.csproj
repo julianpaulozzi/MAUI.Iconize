@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup><!-- VS4Mac workaround -->
-  
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <TargetFrameworks />
+    <TargetFramework>net6.0-android</TargetFramework>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,7 +32,7 @@
 
   <ItemGroup>
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
-    <PackageReference Update="Xamarin.Forms" Version="5.0.0.2545" />
+    <PackageReference Remove="Xamarin.Forms" />
   </ItemGroup>
 
 </Project>

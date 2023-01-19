@@ -1,9 +1,10 @@
 using System.ComponentModel;
 using Android.Content;
 using Android.Views;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
 using Plugin.Iconize;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android.AppCompat;
 
 [assembly: ExportRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer))]
 
@@ -12,7 +13,7 @@ namespace Plugin.Iconize
     /// <summary>
     /// Defines the <see cref="IconNavigationPage" /> renderer.
     /// </summary>
-    /// <seealso cref="Xamarin.Forms.Platform.Android.AppCompat.NavigationPageRenderer" />
+    /// <seealso cref="NavigationPageRenderer" />
     public class IconNavigationRenderer : NavigationPageRenderer
     {
         /// <summary>
@@ -39,14 +40,14 @@ namespace Plugin.Iconize
         }
 
         /// <inheritdoc />
-        protected override void UpdateMenuItemIcon(Context context, IMenuItem menuItem, ToolbarItem toolBarItem)
+        protected override async void UpdateMenuItemIcon(Context context, IMenuItem menuItem, ToolbarItem toolBarItem)
         {
             if (toolBarItem is IconToolbarItem iconToolbarItem)
             {
                 menuItem.SetVisible(iconToolbarItem.IsVisible);
-
-                var icon = iconToolbarItem.GetToolbarItemDrawable(context);
-                if (!(icon is null))
+                
+                var icon = await iconToolbarItem.GetToolbarItemDrawable(context);
+                if (icon is not null)
                 {
                     menuItem.SetIcon(icon);
                     return;

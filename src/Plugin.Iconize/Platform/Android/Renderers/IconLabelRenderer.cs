@@ -1,13 +1,14 @@
 using System;
 using System.ComponentModel;
 using Android.Content;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 using Plugin.Iconize;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 #if USE_FASTRENDERERS
-using LabelRenderer = Xamarin.Forms.Platform.Android.FastRenderers.LabelRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
-using LabelRenderer = Xamarin.Forms.Platform.Android.LabelRenderer;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #endif
 
 [assembly: ExportRenderer(typeof(IconLabel), typeof(IconLabelRenderer))]

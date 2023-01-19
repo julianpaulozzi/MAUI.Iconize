@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using Microsoft.Maui.Hosting;
 
 namespace Plugin.Iconize
 {
@@ -66,22 +69,32 @@ namespace Plugin.Iconize
         /// <param name="toolbarItem">The toolbar item.</param>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        internal static Drawable GetToolbarItemDrawable(this ToolbarItem toolbarItem, Context context)
+        internal static async Task<Drawable> GetToolbarItemDrawable(this ToolbarItem toolbarItem, Context context)
         {
-            if (String.IsNullOrWhiteSpace(toolbarItem.Icon))
+            if (toolbarItem.IconImageSource == null)
                 return null;
 
-            if (!(toolbarItem is IconToolbarItem iconItem))
-                return context.GetDrawable(toolbarItem.Icon);
+            if (toolbarItem is not IconToolbarItem iconItem)
+                return (await toolbarItem.IconImageSource.ToDrawable(context));
+            
+            var drawable = new IconDrawable(context, iconItem.IconImageSource);
 
-            var drawable = new IconDrawable(context, iconItem.Icon);
-            if (drawable is null)
-                return null;
-
-            if (iconItem.IconColor != Xamarin.Forms.Color.Default)
-                drawable = drawable.Color(iconItem.IconColor.ToAndroid());
-
+            drawable = drawable.Color(iconItem.IconColor.ToAndroid());
             return drawable.ActionBarSize();
+        }
+
+        private static async Task<Drawable> ToDrawable(this ImageSource imageSource, Context context)
+        {
+            IImageSourceHandler iImageSourceHandler = imageSource switch
+            {
+                FileImageSource => new FileImageSourceHandler(),
+                StreamImageSource => new StreamImagesourceHandler(),
+                UriImageSource => new ImageLoaderSourceHandler(),
+                _ => throw new NotImplementedException()
+            };
+
+            var bitmap = await iImageSourceHandler.LoadImageAsync(imageSource, context);
+            return new BitmapDrawable(context.Resources, bitmap);
         }
     }
 }
