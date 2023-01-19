@@ -33,4 +33,9 @@
     <None Remove="**/Platform/WPF/**/*.cs" />
     <Compile Include="**/Platform/WPF/**/*.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <PackageReference Update="Xamarin.Forms" Version="5.0.0.2545" />
+  </ItemGroup>
 </Project>
