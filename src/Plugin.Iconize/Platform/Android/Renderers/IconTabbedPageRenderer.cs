@@ -1,11 +1,7 @@
 using Android.Content;
 using Android.Graphics.Drawables;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
-using Plugin.Iconize;
-
-[assembly: ExportRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer))]
 
 namespace Plugin.Iconize
 {

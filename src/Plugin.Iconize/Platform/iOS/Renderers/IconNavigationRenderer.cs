@@ -3,7 +3,6 @@ using Plugin.Iconize;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer))]
 namespace Plugin.Iconize
 {
     /// <summary>

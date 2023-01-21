@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
+using Microsoft.Maui.Hosting;
 
 namespace Plugin.Iconize
 {
@@ -129,6 +132,28 @@ namespace Plugin.Iconize
                 return null;
 
             return Modules?.FirstOrDefault(x => x.Keys.Contains(iconKey))?.GetIcon(iconKey);
+        }
+
+        public static MauiAppBuilder Init(this MauiAppBuilder context)
+        {
+            return context
+                .UseMauiCompatibility()
+                .ConfigureMauiHandlers((handlers) =>
+                {
+#if ANDROID
+                    handlers.AddCompatibilityRenderer(typeof(IconButton), typeof(IconButtonRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconImage), typeof(IconImageRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconLabel), typeof(IconLabelRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer));
+#elif IOS
+                    handlers.AddCompatibilityRenderer(typeof(IconButton), typeof(IconButtonRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconImage), typeof(IconImageRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconLabel), typeof(IconLabelRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer));
+                    handlers.AddCompatibilityRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer));
+#endif
+                });
         }
     }
 }

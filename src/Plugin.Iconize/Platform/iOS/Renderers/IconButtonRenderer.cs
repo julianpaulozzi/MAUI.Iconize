@@ -5,8 +5,6 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(IconButton), typeof(IconButtonRenderer))]
-
 namespace Plugin.Iconize
 {
     /// <summary>

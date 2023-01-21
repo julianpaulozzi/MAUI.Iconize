@@ -4,8 +4,6 @@ using Plugin.Iconize;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
-[assembly: ExportRenderer(typeof(IconLabel), typeof(IconLabelRenderer))]
-
 namespace Plugin.Iconize
 {
     /// <summary>

@@ -4,8 +4,6 @@ using Plugin.Iconize;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
-[assembly: ExportRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer))]
-
 namespace Plugin.Iconize
 {
     /// <summary>

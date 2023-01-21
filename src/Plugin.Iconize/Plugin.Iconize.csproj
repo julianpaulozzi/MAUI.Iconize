@@ -5,6 +5,10 @@
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('linux'))">net6.0-android;</TargetFrameworks>
     <UseMaui>True</UseMaui>
     <OutputType>Library</OutputType>
+    <PackageId>Plugin.Iconize</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Jeremy Marcus, Joel Linder</Authors>
+    <RepositoryUrl>https://github.com/jollescott/FeedMe.Iconize</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

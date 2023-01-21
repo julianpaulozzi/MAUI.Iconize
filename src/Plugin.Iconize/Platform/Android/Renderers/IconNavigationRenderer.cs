@@ -2,11 +2,7 @@ using System.ComponentModel;
 using Android.Content;
 using Android.Views;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
-using Plugin.Iconize;
-
-[assembly: ExportRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer))]
 
 namespace Plugin.Iconize
 {

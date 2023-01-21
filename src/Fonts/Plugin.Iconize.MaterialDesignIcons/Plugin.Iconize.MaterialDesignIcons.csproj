@@ -4,6 +4,10 @@
     <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('linux'))">net6.0-android;</TargetFrameworks>
     <OutputType>Library</OutputType>
+    <PackageId>Plugin.Iconize.MaterialDesignIcons</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Jeremy Marcus, Joel Linder</Authors>
+    <RepositoryUrl>https://github.com/jollescott/FeedMe.Iconize</RepositoryUrl>
   </PropertyGroup>
   
   <ItemGroup>

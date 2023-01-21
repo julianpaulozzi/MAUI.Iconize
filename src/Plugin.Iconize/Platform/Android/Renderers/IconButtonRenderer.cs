@@ -3,7 +3,6 @@ using System.ComponentModel;
 using Android.Content;
 using Android.OS;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility;
 #if USE_FASTRENDERERS
 using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
@@ -11,9 +10,6 @@ using Microsoft.Maui.Controls.Compatibility.Platform.Android.AppCompat;
 #endif
 using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Controls.PlatformConfiguration;
-using Plugin.Iconize;
-
-[assembly: ExportRenderer(typeof(IconButton), typeof(IconButtonRenderer))]
 
 namespace Plugin.Iconize
 {

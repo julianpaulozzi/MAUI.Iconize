@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel;
 using Android.Content;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 #if USE_FASTRENDERERS
@@ -10,11 +9,8 @@ using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #endif
-using Plugin.Iconize;
 
 using ScaleType = Android.Widget.ImageView.ScaleType;
-
-[assembly: ExportRenderer(typeof(IconImage), typeof(IconImageRenderer))]
 
 namespace Plugin.Iconize
 {

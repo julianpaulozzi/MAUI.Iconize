@@ -2,16 +2,12 @@ using System;
 using System.ComponentModel;
 using Android.Content;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility;
 using Microsoft.Maui.Controls.Platform;
-using Plugin.Iconize;
 #if USE_FASTRENDERERS
 using Microsoft.Maui.Controls.Compatibility.Platform.Android.FastRenderers;
 #else
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 #endif
-
-[assembly: ExportRenderer(typeof(IconLabel), typeof(IconLabelRenderer))]
 
 namespace Plugin.Iconize
 {
