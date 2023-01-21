@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-android</TargetFramework>
+    <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('linux'))">net6.0-android;</TargetFrameworks>
     <UseMaui>True</UseMaui>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -25,17 +26,7 @@
     <None Remove="**/Platform/macOS/**/*.cs" />
     <Compile Include="**/Platform/macOS/**/*.cs" />
   </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
-    <None Remove="**/Platform/UWP/**/*.cs" />
-    <Compile Include="**/Platform/UWP/**/*.cs" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('net4')) ">
-    <None Remove="**/Platform/WPF/**/*.cs" />
-    <Compile Include="**/Platform/WPF/**/*.cs" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
     <PackageReference Remove="Xamarin.Forms" />
