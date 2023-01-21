@@ -14,25 +14,21 @@
     <None Remove="@(FontFiles)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+  <ItemGroup Condition="$(TargetFramework.Contains('android')) ">
     <Folder Include="Assets\" />
     <AndroidAsset Include="@(FontFiles)" Link="Assets\%(Filename)%(Extension)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+  <ItemGroup Condition=" $(TargetFramework.Contains('ios')) ">
     <TfmSpecificPackageFile Include="@(FontFiles)" BuildAction="BundleResource" PackagePath="contentFiles\any\$(TargetFramework)\Resources\" PackageCopyToOutput="true" />
     <Folder Include="Resources\" />
     <BundleResource Include="@(FontFiles)" Link="Resources\%(Filename)%(Extension)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.Mac')) ">
+  <ItemGroup Condition=" $(TargetFramework.Contains('maccatalyst')) ">
     <TfmSpecificPackageFile Include="@(FontFiles)" BuildAction="BundleResource" PackagePath="contentFiles\any\$(TargetFramework)\Resources\" PackageCopyToOutput="true" />
     <Folder Include="Resources\" />
     <BundleResource Include="@(FontFiles)" Link="Resources\%(Filename)%(Extension)" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
-    <Content Include="@(FontFiles)" />
   </ItemGroup>
 
   <ItemGroup>
