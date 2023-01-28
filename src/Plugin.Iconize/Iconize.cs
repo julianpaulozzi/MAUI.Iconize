@@ -134,25 +134,17 @@ namespace Plugin.Iconize
             return Modules?.FirstOrDefault(x => x.Keys.Contains(iconKey))?.GetIcon(iconKey);
         }
 
-        public static MauiAppBuilder Init(this MauiAppBuilder context)
+        public static MauiAppBuilder UseIconize(this MauiAppBuilder context)
         {
             return context
                 .UseMauiCompatibility()
                 .ConfigureMauiHandlers((handlers) =>
                 {
-#if ANDROID
                     handlers.AddCompatibilityRenderer(typeof(IconButton), typeof(IconButtonRenderer));
                     handlers.AddCompatibilityRenderer(typeof(IconImage), typeof(IconImageRenderer));
                     handlers.AddCompatibilityRenderer(typeof(IconLabel), typeof(IconLabelRenderer));
                     handlers.AddCompatibilityRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer));
                     handlers.AddCompatibilityRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer));
-#elif IOS
-                    handlers.AddCompatibilityRenderer(typeof(IconButton), typeof(IconButtonRenderer));
-                    handlers.AddCompatibilityRenderer(typeof(IconImage), typeof(IconImageRenderer));
-                    handlers.AddCompatibilityRenderer(typeof(IconLabel), typeof(IconLabelRenderer));
-                    handlers.AddCompatibilityRenderer(typeof(IconNavigationPage), typeof(IconNavigationRenderer));
-                    handlers.AddCompatibilityRenderer(typeof(IconTabbedPage), typeof(IconTabbedPageRenderer));
-#endif
                 });
         }
     }

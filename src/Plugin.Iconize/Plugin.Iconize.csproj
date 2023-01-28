@@ -6,7 +6,7 @@
     <UseMaui>True</UseMaui>
     <OutputType>Library</OutputType>
     <PackageId>Plugin.Iconize</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Jeremy Marcus, Joel Linder</Authors>
     <RepositoryUrl>https://github.com/jollescott/FeedMe.Iconize</RepositoryUrl>
   </PropertyGroup>

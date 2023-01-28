@@ -58,7 +58,7 @@ namespace Plugin.Iconize
             var moduleType = module.GetType();
             if (!_fontCache.ContainsKey(moduleType))
             {
-                _fontCache.Add(moduleType, Typeface.CreateFromAsset(context.Assets, module.FontPath));
+                _fontCache.Add(moduleType, Typeface.CreateFromAsset(context.Assets, System.IO.Path.Join("Assets", module.FontPath)));
             }
             return _fontCache[moduleType];
         }
