@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   
   <PropertyGroup>
     <!-- VS4Mac workaround -->
@@ -23,6 +23,11 @@
   
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
     <Content Include="@(FontFiles)" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Update="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Update="Xamarin.Forms.Platform.WPF" Version="5.0.0.2622" />
   </ItemGroup>
   
 </Project>
